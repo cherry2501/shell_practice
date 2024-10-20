@@ -1,9 +1,16 @@
 #!/bin/bash
 
+USER_ID=$(id -u)
+if ( $USER_ID -ne 0)
+then
+    echo "Better use root user for installation tasks..."
+fi
+
 dnf list installed git
 
 if[ $? -ne 0 ]
 then
+    echo "Git is available. Load up installing git :)"
     dnf install git -y
     if[ $? -ne 0 ]
     then
@@ -20,6 +27,7 @@ dnf list installed mysql
 
 if[ $? -ne 0 ]
 then
+    echo "No luck for mysql... preparing to install"
     dnf install mysql -y
     if[ $? -ne 0 ]
     then
