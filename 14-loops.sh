@@ -24,7 +24,7 @@ do
     then 
         echo "$package not installed..."
         dnf install $package -y
-        VALIDATE $? "Installing $package"
+        VALIDATE $? "$package"
     else
         echo "$package is already installed..."
     fi
