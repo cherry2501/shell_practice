@@ -1,14 +1,14 @@
 #!/bin/bash
 
 USERID=$(id -u)
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then
     echo "Root user is required to run this script..."
     exit 1
 fi
 
 VALIDATE(){
-    if [ $1 -ne 0]
+    if [ $1 -ne 0 ]
     then 
         echo "$2 is not installed... check your script"
         exit 1
