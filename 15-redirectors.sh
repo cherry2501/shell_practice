@@ -7,6 +7,18 @@ LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 
 mkdir -p $LOG_FOLDER
 
+echo "Script started executing at: $(date)" | tee -a $LOG_FILE
+
+USAGE(){
+    echo -e "USAGE:: sudo sh 16-redirectors.sh package1 package2 ..."
+    exit 1
+}
+
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
+
 USER_ID=$(id -u)
 if [ $USER_ID -ne 0 ]
 then
@@ -26,11 +38,11 @@ VALIDATE(){
 
 for package in $@
 do 
-    dnf list installed $package
+    dnf list installed $package &>>LOG_FILE
     if [ $? -ne 0 ]
     then 
         echo "$package not installed..." | tee -a $LOG_FILE
-        dnf install $package -y
+        dnf install $package -y &>>LOG_FILE
         VALIDATE $? "$package"
     else
         echo "$package is already installed..." | tee -a $LOG_FILE
