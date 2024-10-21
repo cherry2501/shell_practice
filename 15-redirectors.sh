@@ -17,10 +17,10 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo "$2 is not installed... check your script"
+        echo "$2 is not installed... check your script" | tee -a $LOG_FILE
         exit 1
     else
-        echo "$2 installed successfully..."
+        echo "$2 installed successfully..." | tee -a $LOG_FILE
     fi
 }
 
@@ -29,10 +29,10 @@ do
     dnf list installed $package
     if [ $? -ne 0 ]
     then 
-        echo "$package not installed..."
+        echo "$package not installed..." | tee -a $LOG_FILE
         dnf install $package -y
         VALIDATE $? "$package"
     else
-        echo "$package is already installed..."
+        echo "$package is already installed..." | tee -a $LOG_FILE
     fi
 done
