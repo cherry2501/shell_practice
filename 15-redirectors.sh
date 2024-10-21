@@ -7,6 +7,11 @@ LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 
 mkdir -p $LOG_FOLDER
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+Y="\e[33m"
+
 echo "Script started executing at: $(date)" | tee -a $LOG_FILE
 
 USAGE(){
