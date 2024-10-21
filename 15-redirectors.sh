@@ -5,7 +5,7 @@ TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 
-mkdir -p $LOG_FILE
+mkdir -p $LOG_FOLDER
 
 USER_ID=$(id -u)
 if [ $USER_ID -ne 0 ]
