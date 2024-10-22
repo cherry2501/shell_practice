@@ -27,7 +27,7 @@ then
     echo "destination directory deos not exists... check it!"
 fi
 
-FILES=$(find ${SOURCE_DIR} -name ".*log" -mtime +$DAYS)
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS)
 echo "Files: $FILES"
 
 if [ ! -z $FILES ] #true if FILES is empty, ! nakes it expression false
