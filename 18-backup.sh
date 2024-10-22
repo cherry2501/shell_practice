@@ -9,7 +9,7 @@ N="\e[0m"
 Y="\e[33m"
 
 USAGE(){
-    echo -e "$R Usage:: $N sh 18-backup.sh .... <source_dir>, <destination_dir>, <days>)
+    echo -e "$R Usage:: $N sh 18-backup.sh .... <source_dir>, <destination_dir>, <days>)"
     exit 1 
 }
 if [ $# -lt 2 ]
