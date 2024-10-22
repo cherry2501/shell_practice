@@ -16,3 +16,15 @@ if [ $# -lt 2 ]
 then
     USAGE
 fi
+
+if [ ! -d $SOURCE_DIR ]
+then 
+    echo "Source directory deos not exists... check it!"
+fi
+
+if [ ! -d $DESTINATION_DIR ]
+then 
+    echo "destination directory deos not exists... check it!"
+fi
+
+FILES=$(find $(SOURCE_DIR) -name ".*log" -mtime +$DAYS)
