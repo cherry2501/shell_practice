@@ -28,11 +28,11 @@ then
 fi
 
 FILES=$(find $(SOURCE_DIR) -name ".*log" -mtime +$DAYS)
-echo "files: $FILES"
+echo "Files: $FILES"
 
 if [ ! -z $FILES ] #true if FILES is empty, ! nakes it expression false
 then
     echo "Files are found"
 else
-    echo "No Files older than $DAYS"
+    echo "No Files older than $DAYS days"
 fi
