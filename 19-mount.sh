@@ -10,9 +10,8 @@ do
     echo "Deleting file: $line"
     USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
     PARTITION=$(echo $line | awk -F " " '{print $NF}')
-    if [ $USAGE -gt $DISK_THRESHOLD ]
+    if [ $USAGE -ge $DISK_THRESHOLD ]
     then 
         echo "$PARTITION is more than $DISK_THRESHOLD, current value:$USAGE... check it"
     fi
 done <<< $DISK_USAGE
-
