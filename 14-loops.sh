@@ -17,7 +17,7 @@ VALIDATE(){
     fi
 }
 
-for package in $@
+for package in $@ #all arguments passed
 do 
     dnf list installed $package
     if [ $? -ne 0 ]
