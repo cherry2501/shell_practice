@@ -11,7 +11,7 @@ dnf list installed git
 
 if [ $? -ne 0 ]
 then
-    echo "Git is available. Load up installing git :)"
+    echo "Git is not available. Load up installing git :)"
     dnf install git -y
     if [ $? -ne 0 ]
     then
