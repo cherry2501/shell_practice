@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a=$1
+a=$1 #pass variable as args positional
 b=$2
 
 sum=$(($a+$b))
